@@ -1,1 +1,25 @@
-
+#cloud-config
+# 1.Add group add user and set ssh-key
+ssh_pwauth: True
+disable_root: false
+groups:
+  - fanliusong: [fanliusong]
+  - cloud-user
+users:
+  - default
+  - name: fanliusong
+    shell: /bin/bash
+    lock_passwd: false
+    sudo: [ALL=(ALL) NOPASSWD:ALL]
+    passwd: [$1$12345678$wq2wGZe.ptcyYG0zRhTF4/]
+chpasswd:
+  expire: False
+  list: |
+    root: [$1$12345678$HpTwu31Eg2cNDkztStrSs1]
+    fanliusong: [$1$12345678$wq2wGZe.ptcyYG0zRhTF4/]
+		
+   
+	  
+      
+      
+      
